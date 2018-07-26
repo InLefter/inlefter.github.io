@@ -1,0 +1,24 @@
+---
+layout: page
+titles:
+  en: Gallery
+  zh: 图集
+  zh-Hans: 图集
+  zh-Hant: 图集
+show_title: false
+---
+
+<div class="layout--gallery js-all">
+  <div class="js-result layout--gallery__result"></div>
+  <div class="grid">
+  {% for image in site.static_files %}
+	{% if image.path contains 'image/gallery' %}
+	<div class="gallery-image"><a href="{{site.baseurl}}{{image.path}}"><img src="{{site.baseurl}}{{image.path}}" alt="myimage.imgpath"/></a></div>
+	{% endif %}
+{% endfor %}
+</div>
+</div>
+
+
+
+{{ content }}

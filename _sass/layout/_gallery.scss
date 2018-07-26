@@ -1,0 +1,13 @@
+.layout--gallery {
+
+  .grid {
+    margin: 0;
+    & > .gallery-image {
+	  a {
+	    img {
+		  width: 100%;
+	    }
+	  }
+    }
+  }
+}
