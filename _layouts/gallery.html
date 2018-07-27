@@ -11,14 +11,25 @@ show_title: false
 <div class="layout--gallery js-all">
   <div class="js-result layout--gallery__result"></div>
   <div class="grid">
+  {% assign i = -1 %}
   {% for image in site.static_files %}
 	{% if image.path contains 'image/gallery' %}
-	<div class="gallery-image"><a href="{{site.baseurl}}{{image.path}}"><img src="{{site.baseurl}}{{image.path}}" alt="myimage.imgpath"/></a></div>
+	  {% assign i = i | plus:1 %}
+	  {% if i < 2 %}
+	    <div class="gallery-box" id={{i}}><a href="{{site.baseurl}}{{image.path}}"><img class="gallery-image" src="{{site.baseurl}}{{image.path}}" alt={{image.path}}/></a></div>
+	  {% else %}
+	    <div class="gallery-box" id={{i}}><a href="{{site.baseurl}}{{image.path}}"><img class="gallery-image" data-src="{{site.baseurl}}{{image.path}}" style="display: none;" alt={{image.path}}/></a></div>
+	  {% endif %}
 	{% endif %}
-{% endfor %}
-</div>
+  {% endfor %}
+  </div>
+  <button type="button" class="button button--pill load-more" data-encode="Load More" onclick="showImg()">
+    <span id="button-text">Load More</span>
+  </button>
 </div>
 
-
+<script>
+  {%- include scripts/gallery.js -%}
+</script>
 
 {{ content }}

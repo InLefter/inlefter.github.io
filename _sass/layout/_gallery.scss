@@ -1,13 +1,13 @@
 .layout--gallery {
 
   .grid {
-    margin: 0;
-    & > .gallery-image {
-	  a {
-	    img {
-		  width: 100%;
-	    }
-	  }
-    }
+    img {
+	  width: 100%;
+	}
+  }
+  .load-more {
+    background: $main-color-1;
+    display: block;
+    margin: 3em auto 3em auto;
   }
 }
